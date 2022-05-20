@@ -16,3 +16,16 @@ button:hover {
   background: #c23866;
   color: #fff;
 }
+
+table {
+  text-align: left;
+  border: 5px solid;
+
+}
+tr {
+  border: 3px solid;
+}
+
+td {
+  border: 3px solid;
+}

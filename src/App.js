@@ -1,29 +1,41 @@
+import { useState } from 'react';
 import './App.css'
-import ''
+let gameBoard = [
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"],
+  ["x","x","x","x","x","x","x","x","x","x","x"]]
 
-const [gameGrid, setGameGrid] = useState([])
+function App() {  
 
-const grid = [
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,1,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0,0],
-]
+const [gameGrid, setGameBoard] = useState(gameBoard)
+const [playerHelper, setHelpers] = useState()
 
-function App() {
+let ModifyContentInPosition = (x,y,value)=> { 
+  let temp = [...gameBoard]
+  temp[x][y] = value
+  setGameBoard(temp)
+}
+
+let GenerateGameBoard = ()=> {
+  ModifyContentInPosition(0,0,"ll")
+  ModifyContentInPosition(10,10,"dl")
+  setHelpers([4,4])
+  console.log(gameGrid)
+}
   return (
     <div className="App">
-      <h1>Magic Match</h1>
-      <button>New Game</button>
+      <h1>klik hear to kräsh gem</h1>
+      <button onClick={GenerateGameBoard}>hear</button>
       <div className="game-grid">
-      {gameGrid.map(card => )}
+        <table className = "grid-table">{gameGrid.map(row => <tr>{row.map(square => <td>{square} {}</td>)}</tr>)}</table>
       </div>
     </div>
   );
